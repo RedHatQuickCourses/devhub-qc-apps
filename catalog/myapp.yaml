@@ -20,6 +20,7 @@ metadata:
     github.com/project-slug: myorg/myapp
     quay.io/repository-slug: myorg/myapp
     backstage.io/kubernetes-namespace: myapp
+spec:
   type: website
   system: myapp
   owner: myapp-dev-team
