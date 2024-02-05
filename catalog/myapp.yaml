@@ -1,0 +1,30 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: myapp
+  title: Example component for RHDH
+  description: |
+    This is the example component for RHDH
+  links:
+    - title: MyApp Website
+      url: https://myapp.example.com
+    - title: MyApp Issues
+      url: https://jira.myapp.com
+    - title: Blog
+      url: https://myapp.example.com/blog
+    - title: Slack
+      url: https://myapp.example.slack.com
+  annotations:
+    argocd/app-name: 'myapp'
+    backstage.io/kubernetes-id: 'myapp'
+    github.com/project-slug: myorg/myapp
+    quay.io/repository-slug: myorg/myapp
+    backstage.io/kubernetes-namespace: myapp
+  type: website
+  system: myapp
+  owner: myapp-dev-team
+  lifecycle: production
+  dependsOn:
+    - resource:pgdb
+  providesApis:
+    - myapp-api
