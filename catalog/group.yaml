@@ -1,0 +1,9 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: myapp-dev-team
+  title: myapp Dev Team
+spec:
+  type: team
+  children: []
