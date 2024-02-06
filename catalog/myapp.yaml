@@ -26,6 +26,4 @@ spec:
   owner: myapp-dev-team
   lifecycle: production
   dependsOn:
-    - resource:pgdb
-  providesApis:
-    - myapp-api
+    - resource:myappdb
