@@ -26,7 +26,7 @@ metadata:
     - recommended
     - react
     - spa
-    - Next.js
+    - Nextjs
 spec:
   owner: myorg-platform-team@example.com
   type: website
