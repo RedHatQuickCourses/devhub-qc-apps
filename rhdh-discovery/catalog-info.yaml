@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: petstore-api-location
+  description: A collection of all the catalog entities in the 'Petstore' API
+spec:
+  targets:
+    - ./petstore-api.yaml
