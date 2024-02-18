@@ -9,7 +9,7 @@ metadata:
     - title: My Quay
       url: https://quay.io
   annotations:
-    quay.io/repository-slug: rsriniva/todo-frontend
+    quay.io/repository-slug: openshift/okd
 spec:
   type: website
   system: myapp
