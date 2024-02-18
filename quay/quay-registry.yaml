@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: myquay
+  title: Example Quay Registry
+  description: |
+    This is a simple Quay.io personal image registry example website
+  links:
+    - title: My Quay
+      url: https://quay.io
+  annotations:
+    quay.io/repository-slug: rsriniva/todo-frontend
+spec:
+  type: website
+  system: myapp
+  owner: frontend-team
+  lifecycle: production
