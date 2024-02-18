@@ -1,19 +1,19 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: nodejs-ex
-  title: Node.js example service
+  name: nginx-ex
+  title: Nginx example service
   description: |
-    This is a simple Node.js service
+    This is a simple Nginx service
   links:
-    - title: MyApp Website
+    - title: My Nginx Website
       url: https://myapp.example.com
   annotations:
-    backstage.io/kubernetes-id: 'nodejs-ex'
+    backstage.io/kubernetes-id: 'nginx-ex'
     backstage.io/kubernetes-namespace: myapps
-    backstage.io/kubernetes-label-selector: 'app=nodejs-ex'
+    backstage.io/kubernetes-label-selector: 'app=nginx'
 spec:
   type: service
   system: myapp
-  owner: myapp-dev-team
+  owner: frontend-team
   lifecycle: production

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ex
+  labels:
+    app: nginx
+    app.openshift.io/runtime: nginx
+    backstage.io/kubernetes-id: nginx-ex
+spec:
+  replicas: 2 # Number of replicas
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest # Container image
+        ports:
+        - containerPort: 80 # Container port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: nginx
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: nginx-route
+  labels:
+    app: nginx
+spec:
+  port:
+    targetPort: 80  # Match service port
+  to:
+    kind: Service
+    name: nginx-service  # Route to the service exposing pods
