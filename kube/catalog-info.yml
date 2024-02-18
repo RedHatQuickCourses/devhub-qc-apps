@@ -9,9 +9,7 @@ metadata:
     - title: MyApp Website
       url: https://myapp.example.com
   annotations:
-    backstage.io/kubernetes-id: 'nodejs-ex'
-    backstage.io/kubernetes-namespace: myapps
-    backstage.io/kubernetes-label-selector: 'app=nodejs-ex'
+    backstage.io/kubernetes-id: nodejs-ex
 spec:
   type: service
   system: myapp
