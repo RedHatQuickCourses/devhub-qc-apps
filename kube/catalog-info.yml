@@ -10,8 +10,8 @@ metadata:
       url: https://myapp.example.com
   annotations:
     backstage.io/kubernetes-id: 'nginx-ex'
-    backstage.io/kubernetes-namespace: myapps
-    backstage.io/kubernetes-label-selector: 'app=nginx'
+    #backstage.io/kubernetes-namespace: myapps
+    #backstage.io/kubernetes-label-selector: 'app=nginx'
 spec:
   type: service
   system: myapp
