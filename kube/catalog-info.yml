@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nodejs-ex
+  title: Node.js example service
+  description: |
+    This is a simple Node.js service
+  links:
+    - title: MyApp Website
+      url: https://myapp.example.com
+  annotations:
+    backstage.io/kubernetes-id: 'nodejs-ex'
+    backstage.io/kubernetes-namespace: myapps
+    backstage.io/kubernetes-label-selector: 'app=nodejs-ex'
+spec:
+  type: service
+  system: myapp
+  owner: myapp-dev-team
+  lifecycle: production
