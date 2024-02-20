@@ -8,6 +8,7 @@ metadata:
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
+    #backstage.io/techdocs-ref: url:https://github.com/org-name/repo-name
 spec:
   type: website
   lifecycle: development
