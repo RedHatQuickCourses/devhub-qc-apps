@@ -1,0 +1,89 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: repo-clone
+spec:
+  steps:
+    - name: clone
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Cloning source repo..."
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: compile-code
+spec:
+  steps:
+    - name: compile
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "compiling code..."
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: run-tests
+spec:
+  params:
+    - name: failme
+      type: string
+  steps:
+    - name: pass-test
+      image: alpine
+      script: |
+        #!/bin/sh
+        if [ $(params.failme) = "false" ]; then
+          echo "Running passing tests..."
+        else
+          echo "Running failing tests..."
+          exit 1
+        fi   
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: deploy-app
+spec:
+  steps:
+    - name: deploy
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Deploying app..."
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: mypipeline
+  labels:
+    app: mypipeline
+    backstage.io/kubernetes-id: mypipeline
+spec:
+  params:
+  - name: failme
+    type: string
+  tasks:
+    - name: clone
+      taskRef:
+        name: repo-clone
+    - name: compile
+      runAfter:
+        - clone
+      taskRef:
+        name: compile-code
+    - name: tests
+      runAfter:
+        - compile
+      taskRef:
+        name: run-tests
+      params:
+        - name: failme
+          value: $(params.failme)
+    - name: deploy
+      runAfter:
+        - tests
+      taskRef:
+        name: deploy-app

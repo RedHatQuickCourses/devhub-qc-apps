@@ -67,6 +67,7 @@ rules:
     resources:
       - pipelines
       - pipelineruns
+      - taskruns
     verbs:
       - get
       - list

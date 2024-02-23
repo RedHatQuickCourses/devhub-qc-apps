@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mypipeline
+  title: A Simple Tekton Pipeline
+  description: |
+    This is a simple Tekton Pipeline
+  annotations:
+    backstage.io/kubernetes-id: 'mypipeline'
+    backstage.io/kubernetes-namespace: myapps
+    backstage.io/kubernetes-label-selector: 'app=mypipeline'
+    janus-idp.io/tekton : mypipeline
+spec:
+  type: pipeline
+  system: myapp
+  owner: frontend-team
+  lifecycle: production

@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: run-ok
+spec:
+  pipelineRef:
+    name: mypipeline
+  params:
+  - name: failme
+    value: "false"
