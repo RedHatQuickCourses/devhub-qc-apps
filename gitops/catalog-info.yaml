@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: spring-petclinic-gitops
+  title: An app deployed by OpenShift GitOps
+  description: |
+    This is a simple spring app deployed by OCP GitOps
+  annotations:
+    backstage.io/kubernetes-id: 'spring-petclinic'
+    backstage.io/kubernetes-namespace: myapps
+    backstage.io/kubernetes-label-selector: 'app=spring-petclinic'
+    argocd/app-name: 'spring-petclinic'
+spec:
+  type: service
+  system: myapp
+  owner: frontend-team
+  lifecycle: production
