@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: spring-petclinic
-  namespace: myapps
+  namespace: openshift-gitops
   labels:
     app: spring-petclinic
 spec:
@@ -15,7 +15,7 @@ spec:
       recurse: true
     path: petclinic
     repoURL: https://github.com/RedHatQuickCourses/devhub-qc-apps.git
-    targetRevision: main
+    targetRevision: HEAD
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
