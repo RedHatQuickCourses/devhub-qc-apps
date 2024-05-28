@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: devhub-qc-apps-location
+  description: Location for DevHub QC Apps
+spec:
+  targets:
+    - "https://github.com/RockStarDeveloperHub/devhub-qc-apps/blob/main/ci-cd/pipeline.yaml"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: devhub-qc-apps-pipeline
+  description: CI/CD pipeline for DevHub QC Apps
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/RockStarDeveloperHub/devhub-qc-apps/blob/main/ci-cd/pipeline.yaml
+spec:
+  type: service
+  lifecycle: production
+  owner: aws
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: devhub-qc-apps-location
+  description: Location for DevHub QC Apps
+spec:
+  targets:
+    - url: https://github.com/RockStarDeveloperHub/devhub-qc-apps
+      type: github 
+---
