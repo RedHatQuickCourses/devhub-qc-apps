@@ -9,7 +9,7 @@ metadata:
     backstage.io/kubernetes-id: 'spring-petclinic'
     backstage.io/kubernetes-namespace: myapps
     backstage.io/kubernetes-label-selector: 'app=spring-petclinic'
-    argocd/app-selector: 'spring-petclinic'
+    argocd/app-selector: 'app=spring-petclinic'
 spec:
   type: service
   system: myapp
